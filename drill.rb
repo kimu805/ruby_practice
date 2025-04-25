@@ -1,13 +1,23 @@
+module M1
+  def method_1
+    __method__
+  end
+end
 
-local = 0
+class C
+  include M1
+end
 
-p1 = proc { |arg1, arg2|
-  arg1, arg2 = arg1.to_i, arg2.to_i
-  local += [arg1, arg2].max
-}
+p C.new.method_1
 
-p1.call("1", "2")
-p1.call("7", "5")
-p1.call("9")
+module M2
+  def method_2
+    __method__
+  end
+end
 
-p local
+module M1
+  include M2
+end
+
+p C.new.method_2
