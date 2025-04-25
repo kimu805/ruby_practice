@@ -1,19 +1,5 @@
-module M
-  def method_missing(id, *args)
-    puts "M#method_missing"
-  end
-end
-class A
-  include M
-  def method_missing(id, *args)
-    puts "A#method_missing"
-  end
-end
-class B < A
-  def method_missing(id, *args)
-    puts "B#method_missing"
-  end
+def hoge(*args)
+  p args[1]
 end
 
-obj = B.new
-obj.dummy_method
+hoge([1,2,3], [2, 3, 4])
