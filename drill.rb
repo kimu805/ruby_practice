@@ -1,23 +1,19 @@
-module M1
-  def method_1
-    __method__
+module M
+  def method_missing(id, *args)
+    puts "M#method_missing"
+  end
+end
+class A
+  include M
+  def method_missing(id, *args)
+    puts "A#method_missing"
+  end
+end
+class B < A
+  def method_missing(id, *args)
+    puts "B#method_missing"
   end
 end
 
-class C
-  include M1
-end
-
-p C.new.method_1
-
-module M2
-  def method_2
-    __method__
-  end
-end
-
-module M1
-  include M2
-end
-
-p C.new.method_2
+obj = B.new
+obj.dummy_method
