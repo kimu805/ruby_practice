@@ -1,5 +1,7 @@
-def hoge(*args)
-  p args[1]
-end
-
-hoge([1,2,3], [2, 3, 4])
+class C
+  protected
+    def initialize
+    end
+  end
+  
+  p C.new.methods.include? :initialize
