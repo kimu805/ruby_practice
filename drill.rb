@@ -1,19 +1,9 @@
-m = Module.new
-
-CONST = "Constant in Toplevel"
-
-_proc = Proc.new do
-  CONST = "Constant in Proc"
+def foo(n)
+  n ** n
 end
 
-m.instance_eval(<<-EOS)
-  CONST = "Constant in Module instance"
+foo = Proc.new { |n|
+  n * 3
+}
 
-  def const
-    CONST
-  end
-EOS
-
-m.module_eval(&_proc)
-
-p m.const
+puts foo.call(2) * 2
