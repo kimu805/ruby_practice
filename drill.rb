@@ -1,19 +1,19 @@
-m = Module.new
+module M
+  @@val = 75
 
-CONST = "Constant in Toplevel"
+  class Parent
+    @@val = 100
+  end
 
-_proc = Proc.new do
-  CONST = "Constant in Proc"
+  class Child < Parent
+    @@val += 50
+  end
+
+  if Child < Parent
+    @@val += 25
+  else
+    @@val += 30
+  end
 end
 
-m.instance_eval(<<-EOS)
-  m::CONST = "Constant in Module instance"
-
-  def const
-    CONST
-  end
-EOS
-
-m.module_eval(&_proc)
-
-p m.const
+p M::Child.class_variable_get(:@@val)
