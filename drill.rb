@@ -1,19 +1,12 @@
-module M
-  @@val = 75
-
-  class Parent
-    @@val = 100
+class Cls1
+  def self.foo
+    puts "Cls1"
   end
-
-  class Child < Parent
-    @@val += 50
-  end
-
-  if Child < Parent
-    @@val += 25
-  else
-    @@val += 30
+end
+class Cls2 < Cls1
+  def foo
+    puts "Cls2"
   end
 end
 
-p M::Child.class_variable_get(:@@val)
+Cls2.foo
