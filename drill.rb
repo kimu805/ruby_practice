@@ -8,4 +8,4 @@ class C
   extend M
 end
 
-p C.new.methods
+p C.new.methods.include? :class_m
