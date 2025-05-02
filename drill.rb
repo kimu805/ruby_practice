@@ -1,4 +1,2 @@
-array = ["a", "b", "c"]
-array = array.map!{|content| content.succ}
-
-p array
+idols = ['TWICE', 'IZ*ONE', 'aespa', 'BLACKPINK', 'aespa', 'TWICE']
+p idols.tally
