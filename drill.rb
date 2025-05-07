@@ -1,10 +1,15 @@
-class Hoge
-  def fuga(o = nil)
-    hoge
-  end
-  private
-  def hoge 
-    puts "Hoge"
+class A 
+  CONST = 0
+  class << self
+    CONST = 1
+    def x 
+      CONST
+    end
   end
 end
-Hoge.new.fuga(Hoge.new)
+
+class B < A
+  CONST = 3
+end
+
+p A.x
