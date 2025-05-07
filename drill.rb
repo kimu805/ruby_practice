@@ -1,15 +1,13 @@
-class A 
-  CONST = 0
+class Speaker
+  @message = "Hello!"
+
   class << self
-    CONST = 1
-    def x 
-      CONST
+    @message = "Howdy!"
+
+    def speak
+      @message
     end
   end
 end
 
-class B < A
-  CONST = 3
-end
-
-p A.x
+puts Speaker.singleton_class.instance_variable_get(:@message)
