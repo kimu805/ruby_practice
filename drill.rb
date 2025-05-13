@@ -1,1 +1,1 @@
-puts "kimura kazuto"
+p "kimura".capitalize
