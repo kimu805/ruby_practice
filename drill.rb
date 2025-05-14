@@ -1,17 +1,20 @@
-class Class
-  def method_missing(id,*args)
-    puts "Class#method_missing"
-  end
-end
-class A 
-  def method_missing(id,*args)
-    puts "A#method_missing"
-  end
-end
-class B < A
-  def method_missing(id,*args)
-    puts "B#method_missing"
+class SecretKeeper
+  def initialize(secret)
+    @secret = secret
   end
 end
 
-B.dummy_method
+obj = SecretKeeper.new(42)
+
+# instance_evalを使ってプライベート変数にアクセス
+obj.instance_eval do
+  puts "秘密の値: #{@secret}"
+
+  # 新しいメソッドを動的に追加
+  def reveal
+    "秘密は#{@secret}です"
+  end
+end
+
+# 動的に追加されたメソッドを呼び出す
+puts obj.reveal
