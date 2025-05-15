@@ -10,7 +10,6 @@ obj = SecretKeeper.new(42)
 obj.instance_eval do
   puts "秘密の値: #{@secret}"
 
-  # 新しいメソッドを動的に追加
   def reveal
     "秘密は#{@secret}です"
   end
