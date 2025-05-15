@@ -16,5 +16,4 @@ obj.instance_eval do
   end
 end
 
-# 動的に追加されたメソッドを呼び出す
 puts obj.reveal
