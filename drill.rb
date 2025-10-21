@@ -27,5 +27,20 @@ def select_sort(array)
   array
 end
 
-sorted_array = select_sort(array)
+def insert_sort(array)
+  (1...array.size).each do |i|
+    key = array[i]
+    j = i - 1
+
+    while j >= 0 && array[j] > key
+      array[j+1] = array[j]
+      j -= 1 
+    end
+
+    array[j+1] = key
+  end
+  array
+end
+
+sorted_array = insert_sort(array)
 p sorted_array
