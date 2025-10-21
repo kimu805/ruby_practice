@@ -1,16 +1,16 @@
-str = "caffelatte"
+array = [30, 100, 43, 50, 20, 69, 40]
 
-def str_counter(str)
-  hash = {}
-  str.each_char do |target|
-    if hash[target]
-      hash[target] += 1
-    else
-      hash[target] = 1
+def sort(array)
+  size = array.size
+  size.times do
+    (0...size-1).each do |i|
+      if array[i] > array[i+1]
+        array[i], array[i+1] = array[i*1], array[i]
+      end
     end
   end
-
-  hash
+  array
 end
 
-puts str_counter(str)
+sorted_array = sort(array)
+p sorted_array
