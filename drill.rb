@@ -13,4 +13,3 @@ end
 
 bubble_sort(array)
 puts "bubble sorted array: #{array}"
-
